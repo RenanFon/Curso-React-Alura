@@ -55,7 +55,15 @@ export default function App() {
     <div>
       <Banner />
       <Formulario times={Times.map(time => time.nome)} aoColaboradorCadastrado ={colaborador => aoNovoColaboradorAdicionado(colaborador)}/>
-      {Times.map( time => <Time key={time.nome} nome={time.nome} corPrimaria={time.corPrimaria} corSecundaria={time.corSecundaria}/>)}
+      {Times.map( time => <Time 
+        key={time.nome} 
+        nome={time.nome} 
+        corPrimaria={time.corPrimaria} 
+        corSecundaria={time.corSecundaria}
+        colaboradores={colaboradores.filter( colaborador => colaborador.time === time.nome)}
+        />)}
+        
+        
     </div>
   );
 }
